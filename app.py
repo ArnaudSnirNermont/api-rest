@@ -22,10 +22,7 @@ app.secret_key = "arnaud"
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
 
-@app.before_first_request
-#Création de la BDD et des tables à moins qu'elles n'existent déjà
-def create_table():
-    db.create_all()
+
     
 
 #Gestion du JWT

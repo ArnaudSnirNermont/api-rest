@@ -1,3 +1,4 @@
+import os
 from db import db
 from datetime import timedelta
 from flask import Flask
@@ -19,11 +20,10 @@ app.secret_key = "arnaud"
 
 #Config SQLAlchemy
 #Type de bdd et emplacement
-app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
+#app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///data.db"
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get("DATABASE_URL2","sqlite:///data.db")
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS']= False
-
-
-    
+ 
 
 #Gestion du JWT
 #Changement de la route d'authentification (par defaut : /auth)
